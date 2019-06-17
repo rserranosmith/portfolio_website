@@ -99,11 +99,14 @@
         margin-bottom: 1rem;
         padding-bottom: 1rem;
         border-bottom: 1px #555 solid;
-        color: #fff;
+
         &:last-child {
           border: none;
           margin-bottom: 0;
           padding-bottom: 0;
+        }
+        p {
+          color: #fff;
         }
       }
     }
