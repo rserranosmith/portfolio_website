@@ -438,9 +438,9 @@ img {
     #main-nav li {
       padding: 1rem; }
   #header-home {
-    height: 10rem;
+    height: 50rem;
     border-bottom: 3px solid #ffbc00;
-    background-position: 20% 30%; }
+    background-position: 90% 20%; }
     #header-home .header-content {
       display: none; }
   #header-inner {
