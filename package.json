@@ -1,13 +1,21 @@
 {
-  "name": "portfolio_website",
+  "name": "personalwebsitev2",
   "version": "1.0.0",
-  "description": "Portfolio Website",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "sass": "node-sass -w scss/ -o dist/css/ --recursive"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rserranosmith/portfolio_website.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rserranosmith/portfolio_website/issues"
+  },
+  "homepage": "https://github.com/rserranosmith/portfolio_website#readme",
   "devDependencies": {
     "node-sass": "^4.12.0"
   }
