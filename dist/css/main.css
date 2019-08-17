@@ -97,7 +97,7 @@ input[class^="btn-"]:hover {
 
 .item {
   position: relative;
-  background: #ccc;
+  background: #f4f4f4;
   overflow: hidden;
   padding: 1rem; }
   .item::after {
