@@ -97,7 +97,7 @@ input[class^="btn-"]:hover {
 
 .item {
   position: relative;
-  background: #ffbc00;
+  background: #ccc;
   overflow: hidden; }
   .item::after {
     content: "";
@@ -114,7 +114,7 @@ input[class^="btn-"]:hover {
   .item:hover:after {
     transform: scale(2) translateX(0) translateY(0) rotate(-28deg); }
   .item:hover .item-image {
-    transform: scale(1.2); }
+    transform: scale(1.1); }
   .item:hover .item-text {
     opacity: 1;
     transform: translateY(0); }

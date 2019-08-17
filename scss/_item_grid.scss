@@ -6,7 +6,7 @@
 
 .item {
   position: relative;
-  background: $main-color;
+  background: $medium-color;
   overflow: hidden;
 
   &::after {
@@ -30,7 +30,7 @@
 
   //Scale Image on Hover
   &:hover &-image {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   //Bring in text on hover
