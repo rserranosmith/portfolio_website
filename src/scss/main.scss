@@ -1,0 +1,493 @@
+@use "config" as *;
+@use "nav";
+@use "utilities";
+@use "item_grid";
+@use "media";
+
+// CSS Custom Properties
+:root {
+  --main-color: #{$main-color};
+  --dark-color: #{$dark-color};
+  --light-color: #{$light-color};
+}
+
+// Base
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.7;
+  background: #fff;
+  color: $dark-color;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.3;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+// Hero Section
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $bg-image no-repeat center/cover;
+  color: #fff;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 2rem;
+    max-width: 850px;
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+  }
+
+  .hero-greeting {
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: $main-color;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-role {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    min-height: 2rem;
+  }
+
+  .hero-lead {
+    font-size: 1.15rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    opacity: 0.8;
+    line-height: 1.8;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+.btn-outline-hero {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  transition: all 0.3s;
+
+  &:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+// TypeWriter cursor
+.txt-type > .txt {
+  border-right: 2px solid $main-color;
+  padding-right: 3px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    border-color: $main-color;
+  }
+  50% {
+    border-color: transparent;
+  }
+}
+
+// About Section
+.about-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-bottom: 4rem;
+}
+
+.about-image {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+
+  img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+}
+
+.about-text {
+  p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.info-card {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  background: $light-color;
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  i {
+    font-size: 2rem;
+    color: $main-color;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    color: $dark-color;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.7;
+  }
+
+  .info-highlight {
+    font-weight: 600;
+    color: $dark-color;
+  }
+
+  .info-detail {
+    font-size: 0.82rem;
+    opacity: 0.7;
+    margin-top: 0.25rem;
+  }
+}
+
+// Experience Section (Timeline)
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+.timeline-item {
+  padding-left: 2.5rem;
+  padding-bottom: 3rem;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: $main-color;
+    border: 3px solid $dark-color;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.timeline-date {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: $main-color;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content {
+  h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+}
+
+.timeline-company {
+  font-size: 0.95rem;
+  opacity: 0.7;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.timeline-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    opacity: 0.85;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.6rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: $main-color;
+    }
+  }
+}
+
+// Skills Section (Tag-based)
+.skills-categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill-category {
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    color: $dark-color;
+
+    i {
+      color: $main-color;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  border-radius: 20px;
+  background: $light-color;
+  color: $dark-color;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+
+  &:hover {
+    background: $main-color;
+    color: $dark-color;
+  }
+}
+
+// Contact Section
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-form {
+  .form-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $main-color;
+    }
+  }
+
+  .form-textarea {
+    min-height: 150px;
+    resize: vertical;
+    margin-bottom: 1rem;
+  }
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-top: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+
+  i {
+    font-size: 1.3rem;
+    color: $main-color;
+    margin-top: 0.2rem;
+  }
+
+  h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.2rem;
+    color: #999;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #fff;
+    line-height: 1.5;
+  }
+}
+
+// Footer
+#main-footer {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 2rem 0;
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      opacity: 0.5;
+      font-size: 0.85rem;
+    }
+  }
+
+  .social {
+    display: flex;
+    gap: 0.75rem;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      color: #fff;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+
+      &:hover {
+        background: $main-color;
+        border-color: $main-color;
+        color: $dark-color;
+      }
+    }
+  }
+}

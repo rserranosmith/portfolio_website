@@ -1,0 +1,6 @@
+[project]
+name = "portfolio-website"
+version = "0.1.0"
+description = "Ricardo Serrano-Smith's portfolio website - Python tooling"
+requires-python = ">=3.12"
+dependencies = []

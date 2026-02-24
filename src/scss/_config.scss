@@ -1,5 +1,6 @@
-// Variables
+@use "sass:color";
 
+// Variables
 $website-width: 1280px;
 
 $main-color: #ffbc00;
@@ -11,9 +12,14 @@ $bg-image: url("../img/showcase.jpg");
 
 // Set Text Color
 @function set-text-color($color) {
-  @if (lightness($color) > 50) {
+  @if (color.channel($color, "lightness", $space: hsl) > 50) {
     @return #000;
   } @else {
     @return #fff;
   }
 }
+
+// CSS Custom Properties (set on :root in main.scss)
+// --main-color: #{$main-color};
+// --dark-color: #{$dark-color};
+// --light-color: #{$light-color};

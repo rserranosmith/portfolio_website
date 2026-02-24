@@ -1,25 +1,27 @@
 {
-  "name": "personalwebsitev2",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "portfolio-website",
+  "version": "2.0.0",
+  "description": "Ricardo Serrano-Smith's portfolio website",
+  "type": "module",
   "scripts": {
-    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "format": "prettier --write \"src/**/*.{html,scss,js}\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rserranosmith/portfolio_website.git"
   },
-  "author": "",
+  "author": "Ricardo Serrano-Smith",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rserranosmith/portfolio_website/issues"
   },
   "homepage": "https://github.com/rserranosmith/portfolio_website#readme",
   "devDependencies": {
-    "node-sass": "^4.12.0"
-  },
-  "dependencies": {
-    "lodash": "^4.17.15"
+    "prettier": "^3.2.0",
+    "sass": "^1.71.0",
+    "vite": "^6.1.0"
   }
 }
