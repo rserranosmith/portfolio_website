@@ -415,6 +415,12 @@ img {
     resize: vertical;
     margin-bottom: 1rem;
   }
+
+  .form-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
 }
 
 .contact-info {
